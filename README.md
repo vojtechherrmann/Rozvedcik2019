@@ -1,8 +1,9 @@
-# Rozvedcik2019 - Losovani
+# Rozvedcik2019 - Draw
 
 Takes two csv files in folder data:
 - guests: list of guests and their internal category names (columns: Name, CategoryInternalName)
 - teams: NxP list of teams composition (columns: TeamId, CategoryId1, CategoryId2, ..., CategoryIdP)
+
 Both csv files must be comma separated, in UTF-8 encoding and with headers.
 
 In the main.R script user can define three arguments:
@@ -10,7 +11,7 @@ In the main.R script user can define three arguments:
 - black_n_white (bool) - for testing on black and white printers a number is added to each symbol representing its color
 - seed (int) (for replicating same random results in the future)
 
-Running all parts od main.R loads data, calculates stuff and write output to the pics folder. In addition outputs.RData is saved with three administratively usefull datasets.
+Running all parts of main.R loads data, calculates stuff and write output to the pics folder. In addition outputs.RData is saved with three administratively usefull datasets.
 The output is one card for each player (with external category name above). The number the file name contains is random.
 
 All of the other parameters (colors, symbols etc.) have to be modified inside the function.R script, which is not going to be documented other way then in-code comments.
