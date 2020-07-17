@@ -45,7 +45,8 @@ runEverything <- function(nr_redundant_symbols, black_n_white) {
   
   # set of guests from csv - cols Name and CategoryInternalName
   assert_that(file.exists("data/guests.csv"))
-  guests_secret <- read.csv("data/guests.csv", encoding = "UTF-8", stringsAsFactors = FALSE) 
+  guests_secret <- read.csv("data/guests.csv", encoding = "UTF-8", stringsAsFactors = FALSE, colClasses = "character")
+  colnames(guests_secret)[1] = "Name"
   assert_that(
     findit2(colnames(guests_secret), c("Name", "CategoryInternalName")), 
     msg = "data guests.csv do not contain column Name or CategoryInternalName"
@@ -72,7 +73,8 @@ runEverything <- function(nr_redundant_symbols, black_n_white) {
   
   # set of teams - TeamId, CategoryId1, , CategoryId2 ... , CategoryId4/5/6/7
   assert_that(file.exists("data/teams.csv"))
-  teams <- read.csv("data/teams.csv", encoding = "UTF-8", stringsAsFactors = FALSE)
+  teams <- read.csv("data/teams.csv", encoding = "UTF-8", stringsAsFactors = FALSE, colClasses = "character")
+  colnames(teams)[1] = "TeamId"
   assert_that(
     "TeamId" %in% colnames(teams),
     msg = "data teams.csv do not contain column TeamId"
