@@ -52,10 +52,9 @@ runEverything <- function(nr_redundant_symbols, black_n_white) {
     msg = "data guests.csv do not contain column Name or CategoryInternalName"
   )
   
-  CategoryInternalNames <- guests_secret %>% pull(CategoryInternalName) %>% unique()
+  CategoryInternalNames <- guests_secret %>% pull(CategoryInternalName) %>% unique() %>% sort()
   
-  fruits <- c("Jahoda", "Avokado", "Mango", "Citron", "Merunka", "Pomeranc", "Mandarinka", "Boruvka", "Dyne",
-              "Jablko", "Banan", "Meloun", "Malina", "Broskev")
+  fruits <- c("Lochneska", "Albatros", "Dodo", "Sfinga", "Tyranosaurus", "Jednorozec", "Fenix", "Pegas")
   
   assert_that(length(CategoryInternalNames)<=length(fruits),
               msg = "Too much categories, add fruits")
